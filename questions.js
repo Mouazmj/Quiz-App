@@ -1,4 +1,4 @@
-const questions = [
+export const questions = [
     {
         question: 'Which team won the NBA Championship in 2023?',
         answers: [
@@ -90,3 +90,4 @@ const questions = [
         ]
     }
 ];
+
