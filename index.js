@@ -14,6 +14,23 @@ let questionIndex;
 let timer;
 let points;
 
+for (let i = 0; i < questionBtns.length; i++) {
+    questionBtns[i].addEventListener('click', () => {
+        const selectedAnswer = questions[questionIndex].answers[i].correct
+        if (selectedAnswer) {
+            points += 1
+        }
+        questionIndex += 1
+        if (questionIndex >= questions.length) {
+            quizScreen.style.display = 'none'
+            resultScreen.style.display = 'block'
+        } else {
+            showQuestion()
+        }
+    });
+}
+
+
 startBtn.addEventListener('click', () => {
     startScreen.style.display = 'none'
     quizScreen.style.display = 'block'
@@ -22,25 +39,20 @@ startBtn.addEventListener('click', () => {
     timer = 0
     points = 0
 
-    questionText.textContent = questions[questionIndex].question
+   
+    showQuestion() 
+})
 
+
+
+const showQuestion = () => {
+    questionText.textContent = questions[questionIndex].question;
+
+    
     for (let i = 0; i < questionBtns.length; i++) {
         questionBtns[i].textContent = questions[questionIndex].answers[i].text;
+    }
+};
 
-        questionBtns[i].addEventListener('click', () => {
-            if (questions[questionIndex].answers[i].correct === true) {
-                points += 1
-            }
-            questionIndex += 1
-            if (questionIndex >= questions.length) {
-                quizScreen.style.display = 'none'
-                resultScreen.style.display = 'block'
-            } else {
-                questionText.textContent = questions[questionIndex].question
-                for (let i = 0; i < questionBtns.length; i++) {
-                    questionBtns[i].textContent = questions[questionIndex].answers[i].text
-                }
-            }
-        })
-    }    
-})
+
+

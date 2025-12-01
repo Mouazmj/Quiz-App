@@ -91,3 +91,19 @@ export const questions = [
     }
 ];
 
+
+questionBtns[i].addEventListener('click', () => {
+    if (questions[questionIndex].answers[i].correct === true) {
+        points += 1
+    }
+    questionIndex += 1
+    if (questionIndex >= questions.length) {
+        quizScreen.style.display = 'none'
+        resultScreen.style.display = 'block'
+    } else {
+        questionText.textContent = questions[questionIndex].question
+        for (let i = 0; i < questionBtns.length; i++) {
+            questionBtns[i].textContent = questions[questionIndex].answers[i].text
+        }
+    }
+})
