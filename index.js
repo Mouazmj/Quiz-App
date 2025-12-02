@@ -16,11 +16,19 @@ let points;
 
 for (let i = 0; i < questionBtns.length; i++) {
     questionBtns[i].addEventListener('click', () => {
+
         const selectedAnswer = questions[questionIndex].answers[i].correct
+
         if (selectedAnswer) {
             points += 1
+            questionBtns[i].classList.add('correct')
+        } else {
+            questionBtns[i].classList.add('incorrect')
         }
+
+
         questionIndex += 1
+
         if (questionIndex >= questions.length) {
             quizScreen.style.display = 'none'
             resultScreen.style.display = 'block'
@@ -50,6 +58,8 @@ const showQuestion = () => {
 
     
     for (let i = 0; i < questionBtns.length; i++) {
+        questionBtns[i].classList.remove('correct', 'incorrect')
+        
         questionBtns[i].textContent = questions[questionIndex].answers[i].text;
     }
 };
