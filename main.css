@@ -61,7 +61,39 @@ button:hover {
     color: #333333;
 }
 
+#quiz-screen {
+    background-color: #C8E6C9; 
+    padding: 40px 20px;         
+    margin: 50px auto;          
+    border-radius: 15px;        
+    max-width: 600px;          
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    text-align: center;    
+}
 
+.btn-answer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 70px;
+    width: 300px;
+    height: 50px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#next-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 60px;
+    height: 50px;
+    width: 130px;
+    font-size: 22px;
+    cursor: pointer;
+}
 .correct {
     background-color: green;
     color: white;
@@ -70,5 +102,15 @@ button:hover {
   .incorrect {
     background-color: red;
     color: white;
+  }
+
+  .correct:hover {
+    background-color: green;
+    color: #EDE7F6;
+  }
+
+  .incorrect:hover {
+    background-color: red;
+    color: #EDE7F6;
   }
   
