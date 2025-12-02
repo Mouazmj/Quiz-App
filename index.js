@@ -60,7 +60,7 @@ for (let i = 0; i < questionBtns.length; i++) {
 const screenHandler = () => {
 score.textContent = `Your score: ${points} out of 10`
 
-timeText.textContent = `Your time: ${formattedTime}`
+timeText.textContent = `Your time: ${formattedTime} sec`
 
 if (points >= 6) {
     passFail.style.color = 'green'
