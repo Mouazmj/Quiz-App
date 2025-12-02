@@ -10,6 +10,8 @@ const nextBtn = document.getElementById('next-btn')
 const questionText = document.getElementById('question-text')
 const questionBtns = document.querySelectorAll('.btn-answer')
 
+const score = document.getElementById('score-text')
+const passFail = document.getElementById('pass-fail-text')
 
 let questionIndex;
 let timer;
@@ -32,8 +34,10 @@ for (let i = 0; i < questionBtns.length; i++) {
 
         questionBtns.forEach(btn => {
             btn.disabled = true
+
             nextBtn.addEventListener('click', () => {
                 btn.disabled = false
+
                 if (questionIndex >= questions.length) {
                     quizScreen.style.display = 'none'
                     resultScreen.style.display = 'block'
@@ -44,6 +48,13 @@ for (let i = 0; i < questionBtns.length; i++) {
         })
 
     });
+}
+
+const screenHandler = () => {
+score.textContent = `Your score: ${points} out of 10`
+if (points >= 6) {
+
+}
 }
 
 
