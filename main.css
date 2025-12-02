@@ -2,6 +2,23 @@
     display: none;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFF9C4;
+}
+
+.start-screen {
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333333;
+}
+
 .correct {
     background-color: green;
     color: white;
@@ -11,5 +28,4 @@
     background-color: red;
     color: white;
   }
-  
   
