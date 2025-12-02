@@ -41,6 +41,7 @@ for (let i = 0; i < questionBtns.length; i++) {
                 if (questionIndex >= questions.length) {
                     quizScreen.style.display = 'none'
                     resultScreen.style.display = 'block'
+                    screenHandler()
                 } 
     
                 showQuestion()
@@ -53,7 +54,11 @@ for (let i = 0; i < questionBtns.length; i++) {
 const screenHandler = () => {
 score.textContent = `Your score: ${points} out of 10`
 if (points >= 6) {
-
+    passFail.style.color = 'green'
+    passFail.textContent = 'You passed!'
+} else if (points < 6) {
+    passFail.style.color = 'red'
+    passFail.textContent = 'You failed!'
 }
 }
 
