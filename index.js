@@ -5,6 +5,7 @@ const quizScreen = document.getElementById('quiz-screen')
 const resultScreen = document.getElementById('result-screen')
 
 const startBtn = document.getElementById('start-btn')
+const nextBtn = document.getElementById('next-btn')
 
 const questionText = document.getElementById('question-text')
 const questionBtns = document.querySelectorAll('.btn-answer')
@@ -29,12 +30,19 @@ for (let i = 0; i < questionBtns.length; i++) {
 
         questionIndex += 1
 
-        if (questionIndex >= questions.length) {
-            quizScreen.style.display = 'none'
-            resultScreen.style.display = 'block'
-        } else {
-            showQuestion()
-        }
+        questionBtns.forEach(btn => {
+            btn.disabled = true
+            nextBtn.addEventListener('click', () => {
+                btn.disabled = false
+                if (questionIndex >= questions.length) {
+                    quizScreen.style.display = 'none'
+                    resultScreen.style.display = 'block'
+                } 
+    
+                showQuestion()
+            })
+        })
+
     });
 }
 
@@ -53,16 +61,19 @@ startBtn.addEventListener('click', () => {
 
 
 
+
+
 const showQuestion = () => {
     questionText.textContent = questions[questionIndex].question;
 
     
     for (let i = 0; i < questionBtns.length; i++) {
         questionBtns[i].classList.remove('correct', 'incorrect')
-        
+
         questionBtns[i].textContent = questions[questionIndex].answers[i].text;
     }
 };
 
 
 
+console.log(questionIndex)

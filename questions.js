@@ -48,8 +48,8 @@ export const questions = [
         question: 'Which team does Luka Dončić play for?',
         answers: [
             { text: 'Miami Heat', correct: false },
-            { text: 'Dallas Mavericks', correct: true },
-            { text: 'Chicago Bulls', correct: false },
+            { text: 'Dallas Mavericks', correct: false },
+            { text: 'Los Angeles Lakers', correct: true },
             { text: 'Atlanta Hawks', correct: false },
         ]
     },
