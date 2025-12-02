@@ -12,10 +12,15 @@ const questionBtns = document.querySelectorAll('.btn-answer')
 
 const score = document.getElementById('score-text')
 const passFail = document.getElementById('pass-fail-text')
+const restartButton = document.getElementById('restart-btn')
+const timeText = document.getElementById('time-text')
 
 let questionIndex;
 let timer;
 let points;
+let seconds;
+let formattedTime;
+
 
 for (let i = 0; i < questionBtns.length; i++) {
     questionBtns[i].addEventListener('click', () => {
@@ -41,6 +46,7 @@ for (let i = 0; i < questionBtns.length; i++) {
                 if (questionIndex >= questions.length) {
                     quizScreen.style.display = 'none'
                     resultScreen.style.display = 'block'
+                    clearInterval(timer)
                     screenHandler()
                 } 
     
@@ -53,6 +59,9 @@ for (let i = 0; i < questionBtns.length; i++) {
 
 const screenHandler = () => {
 score.textContent = `Your score: ${points} out of 10`
+
+timeText.textContent = `Your time: ${formattedTime}`
+
 if (points >= 6) {
     passFail.style.color = 'green'
     passFail.textContent = 'You passed!'
@@ -63,6 +72,8 @@ if (points >= 6) {
 }
 
 
+
+
 startBtn.addEventListener('click', () => {
     startScreen.style.display = 'none'
     quizScreen.style.display = 'block'
@@ -70,6 +81,20 @@ startBtn.addEventListener('click', () => {
     questionIndex = 0
     timer = 0
     points = 0
+    seconds = 0;
+    formattedTime = "0:00";
+
+
+    timer = setInterval(() => {
+        points = points
+
+        seconds++
+
+        const mins = Math.floor(seconds / 60)
+        const secs = seconds % 60
+
+        formattedTime = `${mins}:${secs.toString().padStart(2, '0')}`;
+    }, 1000) 
 
    
     showQuestion() 
@@ -92,4 +117,13 @@ const showQuestion = () => {
 
 
 
-console.log(questionIndex)
+const restartOn = () => {
+    restartButton.addEventListener('click', () => {
+        points = 0
+    questionIndex = 0
+    startScreen.style.display = 'block'
+    resultScreen.style.display = 'none'
+    })
+}
+
+restartOn()
